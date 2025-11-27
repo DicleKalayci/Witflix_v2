@@ -54,6 +54,13 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+body {
+    background-color: #141414;
+    color: white; /* İçerik görünür olsun diye */
+    margin: 0; /* Varsayılan margin'i kaldır */
+    min-height: 100vh; /* Tüm ekranı kaplaması için */
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
