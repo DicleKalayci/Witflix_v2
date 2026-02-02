@@ -18,7 +18,7 @@ function App() {
         <Redirect to="/signup" />
       </Route>
       <Route path="/signup">
-        <SignUp setUser={setUser}/>
+        <SignUp setUser={setUser} />
       </Route>
       <Route path="/welcome">
       {user ? 

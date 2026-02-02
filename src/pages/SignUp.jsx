@@ -3,7 +3,7 @@ import logo from '../assets/logo.png';
 import styled from 'styled-components';
 import hero from '../assets/hero_image.png';
 import axios from 'axios';
-import { useHistory } from "react-router-dom";
+import { useHistory, Redirect } from "react-router-dom";
 import { HeaderStyled } from '../components/Styled.jsx';
 
 const Hero = styled.div`
@@ -58,7 +58,9 @@ const ErrorMessage = styled.p`
 `;
 
 function SignUp(props) {
-    const { setUser } = props;
+     const { setUser, user } = props;
+
+     
 
     const history = useHistory();
 
@@ -101,7 +103,7 @@ function SignUp(props) {
         axios.post("https://jsonplaceholder.typicode.com/users", formData)
         .then((response) => {
             setUser(response.data);
-            history.push("/welcome");
+           history.push("/welcome");
         })
         .catch((error) => 
             console.log(error.message)
@@ -139,11 +141,11 @@ function SignUp(props) {
         </HeaderStyled>
         <Form onSubmit={handleSubmit}>
             <h1>Sign In</h1>
-            <Input name="email" placeholder="Email or phone number" onChange={handleChange} value={formData.email}/>
-            {errors.email && <ErrorMessage>{errors.email}</ErrorMessage>}
-            <Input name="password" placeholder="Password" onChange={handleChange} value={formData.password}/>
-             {errors.password && <ErrorMessage>{errors.password}</ErrorMessage>}
-            <Button disabled={!isValid}>Sign In</Button>
+            <Input name="email" placeholder="Email or phone number" onChange={handleChange} value={formData.email} data-cy="email-input"/>
+            {errors.email && <ErrorMessage data-cy="error">{errors.email}</ErrorMessage>}
+            <Input name="password" placeholder="Password" onChange={handleChange} value={formData.password} data-cy="password-input"/>
+             {errors.password && <ErrorMessage data-cy="error">{errors.password}</ErrorMessage>}
+            <Button disabled={!isValid} data-cy="submit-button">Sign In</Button>
         </Form>
         </Hero>
     )
