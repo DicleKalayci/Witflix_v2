@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import logo from "../assets/logo.png";
 import NavMenu from "./NavMenu";
-
+import search from "../assets/Search.png";
 
 const HeaderDiv = styled.header`
   background: rgba(0, 0, 0, 0.50);  
@@ -24,7 +24,7 @@ function Header() {
       <img src={logo}  />
       <NavMenu />
       <div>
-        Panel
+        <img src={search}  />
       </div>
     </HeaderDiv>
   );
